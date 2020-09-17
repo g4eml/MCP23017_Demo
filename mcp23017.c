@@ -1,3 +1,17 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <string.h>
+#include <errno.h>
+#include <signal.h>
+#include <assert.h>
+#include <sys/ioctl.h>
+#include "/usr/include/linux/i2c-dev.h"
+#include "/usr/include/linux/i2c.h"
+
+
 #define GPIOA	0
 #define GPIOB	1
 #define IODIR	0

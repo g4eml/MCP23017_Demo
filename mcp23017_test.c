@@ -2,18 +2,6 @@
  * mcp23017_test.c : Interface with MCP23017 I/O Extender Chip
  *********************************************************************/
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <string.h>
-#include <errno.h>
-#include <signal.h>
-#include <assert.h>
-#include <sys/ioctl.h>
-#include "/usr/include/linux/i2c-dev.h"
-#include "/usr/include/linux/i2c.h"
-
 #include "mcp23017.c"                             //mcp23017 handlers
 
 const char *i2cNode1 = "/dev/i2c-1";        //linux i2c node for the Hyperpixel display on Pi 4
