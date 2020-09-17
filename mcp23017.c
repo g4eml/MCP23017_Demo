@@ -113,9 +113,9 @@ void i2c_close(void)
 
 // Write to MCP23017 A or B register:
 
-int mcp23017_writereg(unsigned add,int reg,int AB,int value) 
+int mcp23017_writereg(int add,int reg,int AB,int value) 
 {
-	unsigned reg_addr = MCP_REGISTER(reg,AB);
+	int reg_addr = MCP_REGISTER(reg,AB);
 	int rc;
 
 	rc = i2c_write8(add,reg_addr,value);
@@ -125,9 +125,9 @@ int mcp23017_writereg(unsigned add,int reg,int AB,int value)
 
 // Read 8 bits from port
 
-unsigned mcp23017_readport(unsigned add,int AB) 
+unsigned mcp23017_readport(int add,int AB) 
 {
-	unsigned reg_addr = MCP_REGISTER(GPIO,AB);
+	int reg_addr = MCP_REGISTER(GPIO,AB);
 
 	return i2c_read8(add,reg_addr);
 }
@@ -135,21 +135,21 @@ unsigned mcp23017_readport(unsigned add,int AB)
 
 // Write 8-bits port
 
-void mcp23017_writeport(unsigned add,int AB,int value) 
+void mcp23017_writeport(int add,int AB,int value) 
 {
-	unsigned reg_addr = MCP_REGISTER(GPIO,AB);
+	int reg_addr = MCP_REGISTER(GPIO,AB);
 
 	i2c_write8(add,reg_addr,value);
 }
 
-int mcp23017_readbit(unsigned add,int AB, int bit)
+int mcp23017_readbit(int add,int AB, int bit)
 {
  int val;
  int mask;
  
   mask=1<<bit;
   
-	unsigned reg_addr = MCP_REGISTER(GPIO,AB);
+	int reg_addr = MCP_REGISTER(GPIO,AB);
 
 	val=i2c_read8(add,reg_addr);
   
@@ -164,14 +164,14 @@ int mcp23017_readbit(unsigned add,int AB, int bit)
 }
 
 
-void mcp23017_writebit(unsigned add,int AB,int bit,int value) 
+void mcp23017_writebit(int add,int AB,int bit,int value) 
 {
 int val;
 int mask;
 
  mask=1<<bit;
  
-	unsigned reg_addr = MCP_REGISTER(GPIO,AB);
+	int reg_addr = MCP_REGISTER(GPIO,AB);
   val= i2c_read8(add,reg_addr);
   if(value==0)
   {

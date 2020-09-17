@@ -16,15 +16,15 @@
 
 #include "mcp23017.c"                             //mcp23017 handlers
 
-static const char *i2cNode1 = "/dev/i2c-1";        //linux i2c node for the Hyperpixel display on Pi 4
-static const char *i2cNode2 = "/dev/i2c-11";       //linux i2c node for the Hyperpixel display on Pi 4
-static unsigned mcp23017_addr = 0x20;	            //MCP23017 I2C Address
+const char *i2cNode1 = "/dev/i2c-1";        //linux i2c node for the Hyperpixel display on Pi 4
+const char *i2cNode2 = "/dev/i2c-11";       //linux i2c node for the Hyperpixel display on Pi 4
+int  mcp23017_addr = 0x20;	            //MCP23017 I2C Address
 
 
 
 // Configure the MCP23017 GPIO Extender :
 
-int mcp23017_init(unsigned add) 
+int mcp23017_init(int add) 
 {
  int resp; 
  resp=i2c_init(i2cNode1);	               			//Initialize i2c node for a pi with normal display
